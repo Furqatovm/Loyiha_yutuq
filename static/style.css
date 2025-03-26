@@ -508,6 +508,55 @@ hr{
         border-right: none;
         border-bottom: 1px solid lightgray;
     }
+
+    #navv{
+        z-index: +2;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+    
+    #close{
+        position: absolute;
+        bottom: 90%;
+        right: 5%;
+    }
+    .lefttt{
+        position: absolute;
+        bottom: 90%;
+        left: 5%;
+    }
+
+    .linkchalar{
+        border-bottom: 1px solid #171717;
+        width: 100%;
+        padding-bottom: 10px;
+
+    }
+
+    .wrapp-login{
+        max-width: 100%;
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+    .loginn{
+        width: 100%;
+    }
+    
+    
+    
     
 
 
