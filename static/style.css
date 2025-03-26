@@ -58,14 +58,16 @@ header{
     position: relative;
 }
 
-main{
+.center{
     width: 100%;
-    height: 88vh;
+    min-height: 88vh;
     /* background-color: #12e1a6; */
-
-    background: linear-gradient(to bottom, #12e1a6 30%, rgba(18, 225, 166, 0) 100%);
-    position: relative;
+    background: linear-gradient(to bottom, #12e1a6dc 30%, rgba(18, 225, 166, 0) 50%);
     width: 100%;
+
+}
+.wrapper-center{
+    position: relative;
 }
 
 
@@ -74,19 +76,19 @@ main{
 .relative1{
     position: absolute;
     left: 35%;
-    top: 0;
+    top: 15%;
 }
 
 .relative2{
     position: absolute;
-    top: 20%;
-    z-index: -2;
+    top: 25%;
+    z-index: -1;
 }
 
 .relative3{
     position: absolute;
     right: 0;
-    top: 20%;
+    top: 25%;
     z-index: -2;
 }
 
@@ -291,6 +293,7 @@ footer{
     font-size: 14px;
     color: #ffffff;
     text-decoration: none;
+    margin-bottom: 20px;
 }
 
 .footer-links{
@@ -310,18 +313,61 @@ footer{
     gap: 20px;
 }
 
-.wrapepr-footer{
+
+.wrapper-cards{
+    gap: 15px;
+    justify-content: space-between;
+    display: flex;
     max-width: 1000px;
     margin-right: auto;
     margin-left: auto;
-    
+}
+
+hr{
+    width: 280px;
+    opacity: 40%;
 }
 
 
 
+.footer-hr{
+    display: block;
+    width: 1200px;
+    overflow-x: hidden;
+}
+
+.logo{
+    margin-bottom: 30px;
+}
 
 
+.footer-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
 
+.footer-footer-right{
+    display: flex;
+    gap: 20px;
+}
+.wrapper-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 80px;
+}
+
+.class{
+    max-width: 280px;
+}
+
+.card-left{
+    border-right: 1px solid lightgray;
+    padding-right: 30px;
+
+}
 
 @media (max-width: 768px){
     #header-right{
@@ -336,19 +382,13 @@ footer{
         width: 100%;
         height: 10vh;
     }
-    main{
-        width: 100%;
-        height: 90vh;
-    }
 
-    main{
-        width: 100;
-        height: 88vh;
-        /* background-color: #12e1a6; */
-    
-        background: linear-gradient(to bottom, #12e1a6 20%, rgba(18, 225, 166, 0) 100%);
-        position: relative;
+    .center{
         width: 100%;
+        min-height: 88vh;
+        /* background-color: #12e1a6; */
+    position: relative;
+        background: linear-gradient(to bottom, #12e1a6 30%, rgba(18, 225, 166, 0) 40%);
     }
 
     .number{
@@ -404,9 +444,7 @@ footer{
     .quiz-h3{
         text-align: center;
     }
-    body{
-        overflow-x: hidden;
-    }
+    
 
     .right-matn{
         width: 100%;
@@ -434,6 +472,44 @@ footer{
         justify-content: center;
     }
 
+    .wrapper-cards{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    hr{
+        display: none;
+    }
+
+    .wrapper-footer-logo{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo{
+        margin-bottom: 20px;
+    }
+    
+    .footer-hr{
+        max-width: 600px;
+    }
+    .class{
+        display: none;
+    }
+    hr{
+        display: none;
+    }
+
+    .card-left{
+        border-right: none;
+        border-bottom: 1px solid lightgray;
+    }
+    
+
 
 }
 
@@ -446,5 +522,42 @@ footer{
     }
     .card{
         padding: 24px;
+    }
+
+    .wrapper-cards{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-self: center;
+
+
+        
+    }
+/* 
+
+    main{
+        width: 100%;
+        min-height: 88vh;
+        /* background-color: #12e1a6; */
+    
+        /* background: linear-gradient(to bottom, #12e1a6 20%, rgba(18, 225, 166, 0) 100%);
+        position: relative; */
+    /* } */ 
+
+    .footer-footer, .footer-footer-right{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        justify-self: center;
+    }
+
+    .footer-hr{
+        max-width: 350px;
+    }
+
+    .relative1, .relative2, .relative3{
+        display: none;
     }
 }
