@@ -23,19 +23,6 @@ conn.commit()
 
 
 
-def add_peopel(name, emaill, password):
-    cursor.execute("INSERT INTO users (name, email, password) VALUEA (?, ?, ?)", (name, emaill, password))
-
-    conn.commit()
-    print("user succesfully added")
-
-    cursor.execute("SELECT email FROM users")
-
-    emails =cursor.fetchall()
-
-    for email in emails:
-        if email ==emaill:
-            print("siz allaqachon registratsiya qilgansiz")
 
 
 
