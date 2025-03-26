@@ -369,6 +369,10 @@ hr{
 
 }
 
+button, a{
+    cursor: pointer;
+}
+
 @media (max-width: 768px){
     #header-right{
         display: none;
