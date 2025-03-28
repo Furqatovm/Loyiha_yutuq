@@ -1,0 +1,8 @@
+
+
+.center{
+    width: 100%;
+    min-height: 88vh;
+    /* background-color: #12e1a6; */
+    background: linear-gradient(to bottom, #10b7dd 30%, rgba(18, 225, 166, 0) 50%);
+}

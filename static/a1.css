@@ -15,7 +15,7 @@
 .wrapper-card{
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 40px;
 }
 
 .unique-card{
@@ -35,6 +35,53 @@
     font-size: 78px;
 }
 
+.uniques{
+    color: #10b7dd;
+}
+
+.tug{
+    background-color: #10b7dd;
+}
+
+.unique2{
+    color: #be3290;
+}
+
+.tug2{
+    background-color: #be3290;
+}
+
+.unique3{
+    color: #009999;
+}
+.tug3{
+    background-color: #009999;
+}
+
+.unique4{
+    color: #4169E1;
+}
+
+.tug4{
+    background-color: #4169E1;
+}
+
+.unique5{
+    color: #191970;
+}
+
+.tug5{
+    background-color: #191970;
+}
+
+.wrapper-inside-main{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* padding-top: 100px;
+    padding-bottom: 100px; */
+}
+
 
 
 
@@ -51,10 +98,30 @@
     .wrapper-card{
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 50px;
+    }
+    .matnn{
+        max-width: 100%;
+        text-align: center;
+    }
+    .wrapper-inside-main{
+        padding-bottom: 60px;
+    }
+    .main-sarlavha{
+        font-size: 40px;
     }
 }
 
+
+@media (max-width: 500px){
+    .wrapper-inside-main{
+        padding-bottom: 60px;
+    }
+    .main-sarlavha{
+        font-size: 32px;
+    }
+
+}
 
 
 
