@@ -82,6 +82,9 @@ label{
     color: black;
 
 }
+.logos:hover{
+    cursor: pointer;
+}
 span{
     color: #12e1a6;
 }

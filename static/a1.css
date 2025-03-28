@@ -1,0 +1,60 @@
+*,html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.wrapper-main{
+    width: 100%;
+    min-height: 88vh;
+    /* background-color: #12e1a6; */
+    background: linear-gradient(to bottom, #12e1a6dc 30%, rgba(18, 225, 166, 0) 100%);
+}
+
+.wrapper-card{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.unique-card{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-left{
+    border: none;
+}
+
+.sar{
+    font-size: 78px;
+}
+
+
+
+
+
+@media (max-width: 768px){
+    .card-left{
+        border-bottom: 1px solid lightgray;
+    }
+
+    .sar{
+        font-size: 48px;
+    }
+
+    .wrapper-card{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+
+
+
