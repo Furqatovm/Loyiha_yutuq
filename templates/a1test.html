@@ -22,10 +22,16 @@
                 <a href="#" class="links">Our tests</a>
                 <a href="#" class="links">Certifications</a>
                 <a href="#" class="links">About Us</a>
-                <div class="wrapper-btn">
-                    <button class="login">Login</button>
-                </div>
+                {% if user_email %}
+                <a href="../templates/login.html" class="wrapper-btn wrapp-login">
+                    <button class="login loginn">{{ user_email }}</button>
+                    <a href="/logout" class="links linkchalar">{{ Chiqish }}</a>
+                </a>
+                {% else %}
 
+                <a href="/login" class="links linkchalar">Kirish</a>
+               
+                {% endif %}
             </nav>
 
             <button id="open">
@@ -44,9 +50,18 @@
                 <a href="#" class="links linkchalar">Our tests</a>
                 <a href="#" class="links linkchalar">Certifications</a>
                 <a href="#" class="links linkchalar">About Us</a>
+
+                {% if user_email %}
                 <a href="../templates/login.html" class="wrapper-btn wrapp-login">
-                    <button class="login loginn">Login</button>
+                    <button class="login loginn">{{ user_email }}</button>
+                    <a href="/logout" class="links linkchalar">{{ Chiqish }}</a>
                 </a>
+                {% else %}
+
+                <a href="/login" class="links linkchalar">Kirish</a>
+               
+                {% endif %}
+
 
             </nav>
 
@@ -255,7 +270,7 @@
     
 
 
-    <script src="../main.js"></script>
+    <script src="../static/main.js"></script>
     
 </body>
 </html>

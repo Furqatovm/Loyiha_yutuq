@@ -1,9 +1,10 @@
-from flask import Flask, redirect, url_for, render_template, request
+from flask import Flask, redirect, url_for, render_template, request, session
 import sqlite3
 import library
 
 
 app=Flask(__name__)
+app.secret_key ="thisissecretkey"
 
 def connect_db():
     return sqlite3.connect("library.db")
@@ -11,11 +12,11 @@ def connect_db():
 
 
 
-def add_people(name, emaill, password):
+def add_people(emaill, password):
     conn =connect_db()
     cursor =conn.cursor()
 
-    cursor.execute("INSERT INTO users (name, email, password) VALUES (?, ?, ?)", (name, emaill, password))
+    cursor.execute("INSERT INTO users (email, password) VALUES (?, ?)", (emaill, password))
     conn.commit()
     print("user succesfully added")
 
@@ -33,7 +34,8 @@ def add_people(name, emaill, password):
 @app.route("/")
 
 def home():
-    return render_template("index.html")
+    user_email =session.get("email")
+    return render_template("index.html", user_email=user_email)
 
 
 
@@ -56,7 +58,8 @@ def login():
         conn.close()
 
         if user:
-            return f"Xush kelibsiz, {user[1]}! Login muvaffaqiyatli."
+            session["email"] =user[1]
+            return redirect(url_for("home"))
         else:
             return "Xatolik yuz berid"
     return render_template("login.html")
@@ -78,6 +81,7 @@ def signup():
         if existing_user:
             return "Bu allaqachon ro'yhatdan o'tgan"
         
+        
         cursor.execute("INSERT INTO users(email, password) VALUES (?, ?)", (email, password))
 
         conn.commit()
@@ -88,6 +92,11 @@ def signup():
     return render_template("register.html")
 
 
+
+@app.route("/logout")
+def logout():
+    session.pop("email", None)
+    return redirect(url_for("home"))
 
 
 
