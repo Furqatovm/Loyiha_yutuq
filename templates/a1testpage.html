@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <header>
+    <header id="hed">
         <div class="wrapper-header container">
             <a href="../templates/index.html" class="header-left">
                 <img src="../static/images/logo_quiz.svg" alt="" class="logos">
@@ -70,22 +70,27 @@
 
     <main id="main">
 
-        <h2>{{ question["question"] }}</h2>
-    <form method="POST">
-        <input type="radio" name="answer" value="A" required> {{ question["option_a"] }}<br>
-        <input type="radio" name="answer" value="B"> {{ question["option_b"] }}<br>
-        <input type="radio" name="answer" value="C"> {{ question["option_c"] }}<br>
-        <input type="radio" name="answer" value="D"> {{ question["option_d"] }}<br>
+    <form method="POST" class="quti">
+        <h2 class="main-sarlavha3">{{ question["question"] }}</h2>
+        <input id="answer1" class="input" type="radio" name="answer1" value="A"><label for="answer1" class="span">{{ question["option_a"] }}</label> <br>
+        <input id="answer2" class="input" type="radio" name="answer2" value="B"> <label for="answer2" class="span">{{ question["option_b"] }}</label><br>
+        <input id="answer3" class="input" type="radio" name="answer3" value="C"><label for="answer3" class="span">{{ question["option_c"] }}</label> <br>
+        <input id="answer4" class="input" type="radio" name="answer4" value="D"><label for="answer4" class="span">{{ question["option_d"] }}</label> <br>
         
-        {% if current > 0 %}
-            <button type="submit" name="prev">Oldingi</button>
+        <div class="wrapper-tugmalar tuggg">
+
+            {% if current > 0 %}
+            <button class="Oldingi" type="submit" name="prev">Oldingi</button>
         {% endif %}
         
         {% if current + 1 == total %}
-            <button type="submit" name="submit">Yakunlash</button>
+            <button type="submit" name="submit" class="Yakunlash"  onclick="endQuiz()">Yakunlash</button>
         {% else %}
-            <button type="submit" name="next" onclick="endQuiz()">Keyingi</button>
+            <button type="submit" name="next" class="Oldingi Keyingi">Keyingi</button>
         {% endif %}
+
+        </div>
+        
 
         <div class="wrapper-result">
             <a href="/result" class="result">Testni Yakunlash</a>

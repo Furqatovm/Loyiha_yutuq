@@ -23,7 +23,9 @@ let timeLeft =15;
 let timer =setInterval(() =>{
     timeLeft--;
     document.getElementById("second").textContent =timeLeft;
-
+    if(timeLeft < 6){
+        document.getElementById("second").style.color ="red";
+    }
     if (timeLeft <= 0){
         clearInterval(timer);
         window.location.href ="/result"
