@@ -23,9 +23,16 @@
                 <a href="/tests" class="links">Our tests</a>
                 <a href="#" class="links">Certifications</a>
                 <a href="#" class="links">About Us</a>
-                <a href="/login" class="wrapper-btn">
-                    <button class="login">Login</button>
+                {% if user_email %}
+                <a href="../templates/login.html" class="wrapper-btn wrapp-login">
+                    <button class="login loginn">{{ user_email }}</button>
                 </a>
+                <a href="/logout" class="links linkchalar" style="color: black;">{{ Chiqish }}</a>
+                {% else %}
+
+                <a href="/login" class="links">Kirish</a>
+               
+                {% endif %}
 
             </nav>
 
@@ -45,9 +52,16 @@
                 <a href="/tests" class="links linkchalar">Our tests</a>
                 <a href="#" class="links linkchalar">Certifications</a>
                 <a href="#" class="links linkchalar">About Us</a>
-                <a href="/login" class="wrapper-btn wrapp-login">
-                    <button class="login loginn">Login</button>
+                {% if user_email %}
+                <a href="../templates/login.html" class="wrapper-btn wrapp-login">
+                    <button class="login loginn">{{ user_email }}</button>
                 </a>
+                <a href="/logout" class="links linkchalar" style="color: black;">{{ Chiqish }}</a>
+                {% else %}
+
+                <a href="/login" class="links">Kirish</a>
+               
+                {% endif %}
 
             </nav>
 

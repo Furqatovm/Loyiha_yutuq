@@ -15,3 +15,23 @@ openn.addEventListener("click", function(){
 closee.addEventListener("click", function(){
     navv.style.display ="none";
 })
+
+
+let none =document.getElementById("main");
+
+let timeLeft =15;
+let timer =setInterval(() =>{
+    timeLeft--;
+    document.getElementById("second").textContent =timeLeft;
+
+    if (timeLeft <= 0){
+        clearInterval(timer);
+        window.location.href ="/result"
+
+    }
+}, 1000);
+
+function endQuiz(){
+    clearInterval(timer)
+    window.location.href ="/result";
+}

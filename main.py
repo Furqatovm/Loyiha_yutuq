@@ -86,6 +86,7 @@ def home():
 
 @app.route("/login", methods =["POST", "GET"])
 def login():
+    user_email =session.get("email")
     if request.method =="POST":
         email =request.form["email"]
         password =request.form["password"]
@@ -103,7 +104,7 @@ def login():
             return redirect(url_for("home"))
         else:
             return "Xatolik yuz berid"
-    return render_template("login.html")
+    return render_template("login.html", user_email =user_email)
 
 
 @app.route("/signup", methods =["POST", "GET"])
@@ -144,34 +145,41 @@ def logout():
 
 @app.route("/tests", methods =["POST", "GET"])
 def test():
-    return render_template("a1test.html")
+    user_email =session.get("email")
+    return render_template("a1test.html", user_email=user_email)
 
 
 
 
 @app.route("/A1-test")
 def a1():
-    return render_template("index.html")
+    user_email =session.get("email")
+    return render_template("index.html", user_email =user_email)
 
 @app.route("/A2-test")
 def a2():
-    return render_template("a2.html")
+    user_email =session.get("email")
+    return render_template("a2.html", user_email=user_email)
 
 @app.route("/B1-test")
 def b1():
-    return render_template("b1.html")
+    user_email =session.get("email")
+    return render_template("b1.html", user_email=user_email)
 
 @app.route("/B2-test")
 def b2():
-    return render_template("b2.html")
+    user_email =session.get("email")
+    return render_template("b2.html", user_email =user_email)
 
 @app.route("/C1-test")
 def c1():
-    return render_template("c1.html")
+    user_email =session.get("email")
+    return render_template("c1.html", user_email =user_email)
 
 @app.route("/C2-test")
 def c2():
-    return render_template("c2.html")
+    user_email =session.get("email")
+    return render_template("c2.html", user_email=user_email)
 
 
 
