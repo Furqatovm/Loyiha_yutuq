@@ -55,31 +55,26 @@
     </header>
 
     <main>
-        <div class="center center2">
-            <h1 class="main-sarlavha">Test your knowledge</h1>
-            <div class="box">
-                <h1 class="box-h1">quiz savollari?</h1>
-                <p class="matn">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, ipsam?</p>
-                <div class="wrapper-box-btns">
-                    <div class="wrapper-tugma">
-                        <button class="Javob">1991</button>
-                        <button class="Javob">1902</button>
-                    </div>
-                    <div class="wrapper-tugma">
-                        <button class="Javob">1991</button>
-                        <button class="Javob">1902</button>
-                    </div>
-                </div>
 
-                <div class="wrapper-next">
-                    <button class="before Javob">Oldingi</button>
-                    <button class="Javob next before">Keyingi</button>
-                </div>
-            </div>
-            
-        </div>
+        <h2>{{ question["question"] }}</h2>
+    <form method="POST">
+        <input type="radio" name="answer" value="A" required> {{ question["option_a"] }}<br>
+        <input type="radio" name="answer" value="B"> {{ question["option_b"] }}<br>
+        <input type="radio" name="answer" value="C"> {{ question["option_c"] }}<br>
+        <input type="radio" name="answer" value="D"> {{ question["option_d"] }}<br>
         
-    </main>
+        {% if current > 0 %}
+            <button type="submit" name="prev">Oldingi</button>
+        {% endif %}
+        
+        {% if current + 1 == total %}
+            <button type="submit" name="submit">Yakunlash</button>
+        {% else %}
+            <button type="submit" name="next">Keyingi</button>
+        {% endif %}
+    </form>
+        
+    </main> 
 
 
     <script src="../static/main.js"></script>

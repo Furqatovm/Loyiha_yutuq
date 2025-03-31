@@ -65,6 +65,34 @@
     background-color: #be3290;
 }
 
+.wrapper-first-variant{
+    display: flex;
+    gap: 20px;
+    background-color: #45DD97;
+    padding: 13px 40px;
+    border-radius: 10px;
+
+}
+.wrapper-variant{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+.btn{
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 18px;
+    
+}
+
+.radio{
+    display: none;
+}
+
+
+
 
 @media (max-width: 768px){
 
