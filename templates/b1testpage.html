@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/style.css">
     <link rel="stylesheet" href="../static/login.css">
+    <link rel="stylesheet" href="../static/a2testpage.css">
     <link rel="stylesheet" href="../static/a1testpage.css">
 </head>
 <body>
@@ -19,7 +20,7 @@
                 <img src="../static/images/logo_quiz.svg" alt="" class="logos">
             </a>
             <nav id="header-right" class="linklar">
-                <a href="../templates/index.html" class="links">Home</a>
+                <a href="/" class="links">Home</a>
                 <a href="/tests" class="links">Our tests</a>
                 <a href="#" class="links">Certifications</a>
                 <a href="#" class="links">About Us</a>
@@ -68,14 +69,14 @@
         </div>
     </header>
 
-    <main id="main">
+    <main id="mainnn" class="main3">
 
     <form method="POST" class="quti">
-        <h2 class="main-sarlavha3">{{ question["question"] }}</h2>
-        <input id="answer1" class="input" type="radio" name="answer" value="A"><label for="answer1" class="span">{{ question["option_a"] }}</label> <br>
-        <input id="answer2" class="input" type="radio" name="answer" value="B"> <label for="answer2" class="span">{{ question["option_b"] }}</label><br>
-        <input id="answer3" class="input" type="radio" name="answer" value="C"><label for="answer3" class="span">{{ question["option_c"] }}</label> <br>
-        <input id="answer4" class="input" type="radio" name="answer" value="D"><label for="answer4" class="span">{{ question["option_d"] }}</label> <br>
+        <h2 class="main-sarlavha3 h4">{{ question["question"] }}</h2>
+        <input id="answer1" class="input" type="radio" name="answer" value="A"><label for="answer1" class="span kok">{{ question["option_a"] }}</label> <br>
+        <input id="answer2" class="input" type="radio" name="answer" value="B"> <label for="answer2" class="span kok">{{ question["option_b"] }}</label><br>
+        <input id="answer3" class="input" type="radio" name="answer" value="C"><label for="answer3" class="span kok">{{ question["option_c"] }}</label> <br>
+        <input id="answer4" class="input" type="radio" name="answer" value="D"><label for="answer4" class="span kok">{{ question["option_d"] }}</label> <br>
         
         <div class="wrapper-tugmalar tuggg">
 
@@ -86,14 +87,14 @@
         {% if current + 1 == total %}
             <button type="submit" name="submit" class="Yakunlash">Yakunlash</button>
         {% else %}
-            <button type="submit" name="next" class="Oldingi Keyingi">Keyingi</button>
+            <button type="submit" name="next" class="Oldingi Keyingi" onclick="nextQuestion()">Keyingi</button>
         {% endif %}
 
         </div>
         
 
         <div class="wrapper-result">
-            <a href="/result" class="result">Testni Yakunlash</a>
+            <a href="/result2" class="result">Testni Yakunlash</a>
         </div>
 
         <h1 id="second">15</h1>

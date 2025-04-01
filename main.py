@@ -102,6 +102,65 @@ def quiza_2():
 
 
 
+questions3 =[
+  {"question": "What is the comparative form of 'fast'?", "option_a": "Faster", "option_b": "More fast", "option_c": "Most fast", "option_d": "Fastest", "answer": "A"},
+  {"question": "Choose the correct past tense of 'go'.", "option_a": "Went", "option_b": "Gone", "option_c": "Goes", "option_d": "Going", "answer": "A"},
+  {"question": "Which of these sentences is correct?", "option_a": "She can sings well.", "option_b": "She can sing well.", "option_c": "She can singing well.", "option_d": "She can to sing well.", "answer": "B"},
+  {"question": "What is the superlative form of 'big'?", "option_a": "Biggest", "option_b": "More big", "option_c": "Bigger", "option_d": "Most big", "answer": "A"},
+  {"question": "Which word is a synonym of 'happy'?", "option_a": "Sad", "option_b": "Angry", "option_c": "Joyful", "option_d": "Bored", "answer": "C"},
+  {"question": "Fill in the blank: 'I ___ to the park yesterday.'", "option_a": "Go", "option_b": "Going", "option_c": "Went", "option_d": "Will go", "answer": "C"},
+  {"question": "Which of these sentences uses the correct form of 'there'?", "option_a": "Their is a book on the table.", "option_b": "There is a book on the table.", "option_c": "They’re is a book on the table.", "option_d": "There’s a book on the table.", "answer": "B"},
+  {"question": "What is the correct question form of 'You like coffee'?", "option_a": "Do you like coffee?", "option_b": "You like coffee?", "option_c": "Do like you coffee?", "option_d": "Like you coffee?", "answer": "A"},
+  {"question": "Choose the correct word: 'I have ___ homework to do.'", "option_a": "Much", "option_b": "Many", "option_c": "A lot", "option_d": "Few", "answer": "A"},
+  {"question": "Which of these sentences is in the present continuous tense?", "option_a": "I eat lunch now.", "option_b": "I am eating lunch now.", "option_c": "I will eat lunch now.", "option_d": "I ate lunch now.", "answer": "B"}
+]
+
+
+@app.route("/quiz3", methods =["GET", "POST"])
+def quiza_3():
+    user_email =session.get("email")
+    if "current_question3" not in session:
+        session["current_question3"] =0
+        session["score3"] =0
+        session["mistakes3"] =0
+
+    current_question =session["current_question3"]
+    if request.method =="POST":
+        user_answer =request.form.get("answer")
+        correct_answer =questions3[current_question]["answer"]
+
+        if user_answer:
+            if user_answer == correct_answer:
+                session["score3"] += 1
+            else:
+                session["mistakes3"] += 1
+
+
+                # 
+        if "next" in request.form and current_question + 1 < len(questions3):
+            session["current_question3"] += 1
+        elif "prev" in request.form and current_question > 0:
+            session["current_question3"] -=1
+        elif "submit" in request.form and current_question +1 ==len(questions3):
+            return redirect(url_for("resulta3"))
+        
+        
+    return render_template("b1testpage.html", question =questions3[current_question], current=current_question, total=len(questions3), user_email=user_email)
+
+
+
+@app.route("/result3")
+def resulta3():
+    score =session.get("score3", 0)
+    mistakes =session.get("mistakes3", 0)
+
+    session.pop("current_question3", None)
+    session.pop("score3", None)
+    session.pop("mistakes3", None)
+    return render_template("resultb1.html", score3=score, mistakes3=mistakes, total=len(questions3))
+
+
+
 
 
 @app.route("/result")
