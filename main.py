@@ -23,6 +23,9 @@ questions =[
 {"question": "Which of these is a fruit?", "option_a": "Carrot", "option_b": "Apple", "option_c": "Bread", "option_d": "Chicken", "answer": "B"}
 ]
 
+
+
+
 @app.route("/quiz", methods =["GET", "POST"])
 def quiz():
     user_email =session.get("email")
@@ -37,10 +40,13 @@ def quiz():
         correct_answer =questions[current_question]["answer"]
 
         if user_answer:
-            if user_answer ==correct_answer:
+            if user_answer == correct_answer:
                 session["score"] += 1
             else:
                 session["mistakes"] += 1
+
+
+                # 
         if "next" in request.form and current_question + 1 < len(questions):
             session["current_question"] += 1
         elif "prev" in request.form and current_question > 0:
@@ -51,6 +57,53 @@ def quiz():
     return render_template("a1testpage.html", question =questions[current_question], current=current_question, total=len(questions), user_email=user_email)
 
 
+questions2 =[
+{"question": "What is the plural of 'child'?", "option_a": "Childs", "option_b": "Children", "option_c": "Childes", "option_d": "Childrens", "answer": "B"},
+    {"question": "Which sentence is correct?", "option_a": "She go to school.", "option_b": "She goes to school.", "option_c": "She going to school.", "option_d": "She gone to school.", "answer": "B"},
+    {"question": "Choose the correct preposition: 'I am good ___ English.'", "option_a": "at", "option_b": "on", "option_c": "in", "option_d": "of", "answer": "A"},
+    {"question": "What is the past simple of 'go'?", "option_a": "Goed", "option_b": "Gone", "option_c": "Went", "option_d": "Go", "answer": "C"},
+    {"question": "Which word is a verb?", "option_a": "Beautiful", "option_b": "Slowly", "option_c": "Run", "option_d": "Happy", "answer": "C"},
+    {"question": "Which sentence is in the present continuous tense?", "option_a": "She plays football.", "option_b": "She is playing football.", "option_c": "She played football.", "option_d": "She has played football.", "answer": "B"},
+    {"question": "Which sentence is correct?", "option_a": "I can to swim.", "option_b": "I can swimming.", "option_c": "I can swim.", "option_d": "I can swam.", "answer": "C"},
+    {"question": "Which word is a noun?", "option_a": "Happy", "option_b": "Run", "option_c": "Cat", "option_d": "Quickly", "answer": "C"},
+    {"question": "What is the comparative form of 'fast'?", "option_a": "Faster", "option_b": "More fast", "option_c": "Most fast", "option_d": "Fastest", "answer": "A"},
+]
+
+
+@app.route("/quiz2", methods =["GET", "POST"])
+def quiza_2():
+    user_email =session.get("email")
+    if "current_question2" not in session:
+        session["current_question2"] =0
+        session["score2"] =0
+        session["mistakes2"] =0
+
+    current_question =session["current_question2"]
+    if request.method =="POST":
+        user_answer =request.form.get("answer")
+        correct_answer =questions2[current_question]["answer"]
+
+        if user_answer:
+            if user_answer == correct_answer:
+                session["score2"] += 1
+            else:
+                session["mistakes2"] += 1
+
+
+                # 
+        if "next" in request.form and current_question + 1 < len(questions2):
+            session["current_question2"] += 1
+        elif "prev" in request.form and current_question > 0:
+            session["current_question2"] -=1
+        elif "submit" in request.form and current_question +1 ==len(questions2):
+            return redirect(url_for("resulta2"))
+        
+    return render_template("a2testpage.html", question =questions2[current_question], current=current_question, total=len(questions2), user_email=user_email)
+
+
+
+
+
 @app.route("/result")
 def result():
     score =session.get("score", 0)
@@ -59,6 +112,17 @@ def result():
     session.pop("score", None)
     session.pop("mistakes", None)
     return render_template("result.html", score=score, mistakes=mistakes, total=len(questions))
+
+
+@app.route("/result2")
+def resulta2():
+    score =session.get("score2", 0)
+    mistakes =session.get("mistakes2", 0)
+    session.pop("current_question2", None)
+    session.pop("score2", None)
+    session.pop("mistakes2", None)
+    return render_template("result2.html", score2=score, mistakes2=mistakes, total=len(questions))
+
 
 
 def add_people(emaill, password):

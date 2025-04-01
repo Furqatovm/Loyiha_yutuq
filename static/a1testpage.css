@@ -263,7 +263,14 @@
     justify-content: center;
 }
 
+#mainnn{
+    background: linear-gradient(to bottom, #10b7dd 30%, rgba(18, 225, 166, 0) 50%);
 
+}
+
+.kokinput{
+    background-color: #10b7dd;
+}
 
 
 @media (max-width: 768px){
