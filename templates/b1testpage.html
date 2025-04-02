@@ -28,7 +28,9 @@
                 <a href="../templates/login.html" class="wrapper-btn wrapp-login">
                     <button class="login loginn">{{ user_email }}</button>
                 </a>
-                <a href="/logout" class="links linkchalar" style="color: black;">{{ Chiqish }}</a>
+                <a href="/logout" class="wrapper-btn wrap-login">
+                    <button class="login loginn login2">Log-out</button>
+                </a>
                 {% else %}
 
                 <a href="/login" class="links">Kirish</a>
@@ -57,7 +59,9 @@
                 <a href="../templates/login.html" class="wrapper-btn wrapp-login">
                     <button class="login loginn">{{ user_email }}</button>
                 </a>
-                <a href="/logout" class="links linkchalar" style="color: black;">{{ Chiqish }}</a>
+                <a href="/logout" class="wrapper-btn wrap-login">
+                    <button class="login loginn login2">Log-out</button>
+                </a>
                 {% else %}
 
                 <a href="/login" class="links">Kirish</a>
@@ -69,14 +73,14 @@
         </div>
     </header>
 
-    <main id="mainnn" class="main3">
+    <main id="gulop">
 
     <form method="POST" class="quti">
-        <h2 class="main-sarlavha3 h4">{{ question["question"] }}</h2>
-        <input id="answer1" class="input" type="radio" name="answer" value="A"><label for="answer1" class="span kok">{{ question["option_a"] }}</label> <br>
-        <input id="answer2" class="input" type="radio" name="answer" value="B"> <label for="answer2" class="span kok">{{ question["option_b"] }}</label><br>
-        <input id="answer3" class="input" type="radio" name="answer" value="C"><label for="answer3" class="span kok">{{ question["option_c"] }}</label> <br>
-        <input id="answer4" class="input" type="radio" name="answer" value="D"><label for="answer4" class="span kok">{{ question["option_d"] }}</label> <br>
+        <h2 class="main-sarlavha3">{{ question["question"] }}</h2>
+        <input id="answer1" class="input" type="radio" name="answer" value="A"><label for="answer1" class="span">{{ question["option_a"] }}</label> <br>
+        <input id="answer2" class="input" type="radio" name="answer" value="B"> <label for="answer2" class="span">{{ question["option_b"] }}</label><br>
+        <input id="answer3" class="input" type="radio" name="answer" value="C"><label for="answer3" class="span">{{ question["option_c"] }}</label> <br>
+        <input id="answer4" class="input" type="radio" name="answer" value="D"><label for="answer4" class="span">{{ question["option_d"] }}</label> <br>
         
         <div class="wrapper-tugmalar tuggg">
 
@@ -94,7 +98,7 @@
         
 
         <div class="wrapper-result">
-            <a href="/result2" class="result">Testni Yakunlash</a>
+            <a href="/result3" class="result">Testni Yakunlash</a>
         </div>
 
         <h1 id="second">15</h1>
@@ -104,7 +108,7 @@
     
 
 
-    <script src="../static/main.js"></script>
+    <script src="../static/mainb1.js"></script>
     
 </body>
 </html>

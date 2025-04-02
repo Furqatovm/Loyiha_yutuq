@@ -23,7 +23,9 @@
                 <a href="../templates/login.html" class="wrapper-btn wrapp-login">
                     <button class="login loginn">{{ user_email }}</button>
                 </a>
-                <a href="/logout" class="links linkchalar" style="color: black;">{{ Chiqish }}</a>
+                <a href="/logout" class="wrapper-btn wrap-login">
+                    <button class="login loginn login2">Log-out</button>
+                </a>
                 {% else %}
 
                 <a href="/login" class="links">Kirish</a>
@@ -38,7 +40,7 @@
             
 
             <nav id="navv" class="linklar">
-                <a href="../templates/index.html" class="header-left lefttt">
+                <a href="/" class="header-left lefttt">
                     <img src="../static/images/logo_quiz.svg" alt="" class="logos">
                 </a>
                 <button id="close">
@@ -51,7 +53,9 @@
                 {% if user_email %}
                 <a href="../templates/login.html" class="wrapper-btn wrapp-login">
                     <button class="login loginn">{{ user_email }}</button>
-                    <a href="/logout" class="links linkchalar">{{ Chiqish }}</a>
+                    <a href="/logout" class="wrapper-btn wrap-login">
+                        <button class="login loginn login2">Log-out</button>
+                    </a>
                 </a>
                 {% else %}
 
@@ -64,7 +68,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="mainnnnn">
 
         <div class="wrapper-relative">
             <img src="../static/images/backgrrr.svg" alt="" class="relative1">
@@ -82,11 +86,11 @@
             <div class="card">
                 <div class="card-left">
                     <div class="left-left">
-                        <h6 class="number">A1</h6>
+                        <h6 class="number">TRY</h6>
                     </div>
                     <div class="left-right">
-                        <p class="matn">TEST</p>
-                        <strong class="matn2">STARTER</strong>
+                        <p class="matn">OUR</p>
+                        <strong class="matn2">TEST</strong>
                     </div>
                 </div>
                 <div class="card-right">

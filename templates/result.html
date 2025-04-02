@@ -18,10 +18,10 @@
 
             <h1 class="main-sarlavha">A1 test results</h1>
 
-        <h1 class="score achko"> Score: {{ score }}</h1>
+        <h1 class="score achko" id="ochko"> Score: {{ score }}</h1>
     <h1 class="score mistakes">Mistakes: {{ mistakes }}</h1>
     <h1 class="score">Total: {{ total }}</h1>
-    <h1 class="score maslahat">Siz sal harakat qiling</h1>
+    <h1 id="scoree" class="text-info"></h1>
 
     <a href="/" class="wrapper-tugma">
         <button class="tugma">Home</button>
@@ -31,6 +31,21 @@
 
         
     </main>
+
+    <script src="../static/main.js">
+
+        let ochko1 =document.getElementById("ochko");
+        let score =document.getElementById("scoree");
+
+        let ochko =Number(ochko1);
+
+        if (ochko > 5){
+            score.textContent ="siz A1 daraja";
+        } else{
+            score.textContent ="siz 0san"
+        }
+
+    </script>
 
 
     

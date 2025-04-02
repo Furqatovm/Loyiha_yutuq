@@ -36,23 +36,36 @@ let timer =setInterval(() =>{
 function endQuiz(){
     clearInterval(timer)
     window.location.href ="/result";
-}
 
-let suggestion =document.querySelectorAll(".suggestion");
-
-let ochko =document.querySelectorAll(".achko");
-
-if (ochko > 8 && ochko < 10){
-    suggestion.textContent ="Siz haqiqiy A1 o'quvchi";
-} 
-else if(ochko > 6 && ochko < 8){
-    suggestion.textContent ="siz o'rtacha ekansiz";
 
 }
-else if (ochko > 5 && ochko < 6){
-    suggestion.textContent ="siz qattiq harakat qiling";
-}
-else{
-    suggestion.textContent ="siz 0 ekansiz"
-}
 
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let suggestion = document.getElementById("scoree");
+    let ochkoElement = document.getElementById("ochko");
+
+    if (ochkoElement) {
+        let ochko = parseFloat(ochkoElement.textContent.replace("Score: ", "").trim());
+
+        if (ochko >= 8 && ochko <= 10) {
+            suggestion.textContent = "Darajangiz A1";
+        } 
+        else if (ochko >= 6 && ochko < 8) {
+            suggestion.textContent = "Starter";
+        }
+        else if (ochko >= 5 && ochko < 6) {
+            suggestion.textContent = "Darajangiz 0";
+        }
+        else {
+            suggestion.textContent = "Siz 0 ekansiz";
+        }
+
+        // Agar ochko 8 bo‘lsa, <p> ni ham o‘zgartiramiz
+        let paragraph = document.querySelector(".info-text");
+        if (paragraph && ochko === 8) {
+            paragraph.textContent = suggestion.textContent;
+        }
+    }
+});

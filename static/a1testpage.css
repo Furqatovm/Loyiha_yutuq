@@ -154,6 +154,7 @@
 }
 
 
+
 .Oldingi{
     padding: 13px 50px;
     background-color: #4169E1;
@@ -247,6 +248,7 @@
 
 #mainnn{
     background: linear-gradient(to bottom, #10b7dd 30%, rgba(18, 225, 166, 0) 50%);
+    padding-top: 40px;
 
 }
 
@@ -269,7 +271,7 @@
 }
 
 
-.main3{
+#gulop{
     background: linear-gradient(to bottom, #be3290 30%, rgba(18, 225, 166, 0) 50%);
     width: 100%;
     height: 100vh;
@@ -282,9 +284,62 @@
     color: #be3290;
 }
 
+#span1, #span2, #span3, #span4{
+    background-color: #be3290;
+}
+
+#keyin{
+    background-color: #10b7dd;
+}
 
 
 
+.b2{
+    background: linear-gradient(to bottom, #009999 30%, rgba(18, 225, 166, 0) 50%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.color{
+    color: #009999;
+}
+
+
+.c1{
+    background: linear-gradient(to bottom, #4169E1 30%, rgba(18, 225, 166, 0) 50%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.color2{
+    color: #4169E1;
+}
+
+.c2{
+    background: linear-gradient(to bottom, #191970 30%, rgba(18, 225, 166, 0) 50%);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.color3{
+    color: #191970;
+}
+
+.quti2{
+    height: auto;
+}
+
+.label.kok{
+    background-color: #10b7dd;
+}
 
 
 @media (max-width: 768px){
@@ -294,11 +349,16 @@
         margin-right: auto;
         margin-left: auto;
         padding-top: 40px;
+        height: auto;
     }
     .wrapper-main{
         max-width: 650px;
         margin-right: auto;
         margin-left: auto;
+    }
+    .quti{
+        height: auto;
+        padding-top: 50px;
     }
 
 

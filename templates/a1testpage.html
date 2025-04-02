@@ -27,7 +27,9 @@
                 <a href="../templates/login.html" class="wrapper-btn wrapp-login">
                     <button class="login loginn">{{ user_email }}</button>
                 </a>
-                <a href="/logout" class="links linkchalar" style="color: black;">{{ Chiqish }}</a>
+                <a href="/logout" class="wrapper-btn wrap-login">
+                    <button class="login loginn login2">Log-out</button>
+                </a>
                 {% else %}
 
                 <a href="/login" class="links">Kirish</a>
@@ -56,7 +58,9 @@
                 <a href="../templates/login.html" class="wrapper-btn wrapp-login">
                     <button class="login loginn">{{ user_email }}</button>
                 </a>
-                <a href="/logout" class="links linkchalar" style="color: black;">{{ Chiqish }}</a>
+                <a href="/logout" class="wrapper-btn wrap-login">
+                    <button class="login loginn login2">Log-out</button>
+                </a>
                 {% else %}
 
                 <a href="/login" class="links">Kirish</a>
@@ -86,7 +90,7 @@
         {% if current + 1 == total %}
             <button type="submit" name="submit" class="Yakunlash">Yakunlash</button>
         {% else %}
-            <button type="submit" name="next" class="Oldingi Keyingi">Keyingi</button>
+            <button type="submit" name="next" class="Oldingi Keyingi" onclick="nextQuestion()">Keyingi</button>
         {% endif %}
 
         </div>

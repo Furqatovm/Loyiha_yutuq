@@ -27,33 +27,12 @@ let timer =setInterval(() =>{
     }
     if (timeLeft <= 0){
         clearInterval(timer);
-        window.location.href ="/result2"
+        window.location.href ="/result5"
 
     }
 }, 1000);
 
 function endQuiz(){
     clearInterval(timer)
-    window.location.href ="/result2";
-}
-
-
-
-let suggestion =document.getElementById("scoree")
-
-let ochko =document.getElementById("ochko")
-let ochk =Number(ochko);
-
-if (ochk > 8 && ochk < 10){
-    suggestion.textContent ="Siz haqiqiy A1 o'quvchi";
-} 
-else if(ochk > 6 && ochk < 8){
-    suggestion.textContent ="siz o'rtacha ekansiz";
-
-}
-else if (ochk > 5 && ochk < 6){
-    suggestion.textContent ="siz qattiq harakat qiling";
-}
-else{
-    suggestion.textContent ="siz 0 ekansiz"
+    window.location.href ="/result5";
 }

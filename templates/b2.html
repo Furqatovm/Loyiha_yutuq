@@ -26,7 +26,9 @@
                 <a href="../templates/login.html" class="wrapper-btn wrapp-login">
                     <button class="login loginn">{{ user_email }}</button>
                 </a>
-                <a href="/logout" class="links linkchalar" style="color: black;">{{ Chiqish }}</a>
+                <a href="/logout" class="wrapper-btn wrap-login">
+                    <button class="login loginn login2">Log-out</button>
+                </a>
                 {% else %}
 
                 <a href="/login" class="links">Kirish</a>
@@ -55,7 +57,9 @@
                 <a href="../templates/login.html" class="wrapper-btn wrapp-login">
                     <button class="login loginn">{{ user_email }}</button>
                 </a>
-                <a href="/logout" class="links linkchalar" style="color: black;">{{ Chiqish }}</a>
+                <a href="/logout" class="wrapper-btn wrap-login">
+                    <button class="login loginn login2">Log-out</button>
+                </a>
                 {% else %}
 
                 <a href="/login" class="links">Kirish</a>
@@ -101,9 +105,9 @@
                         <li class="lilar">Share your score on social media</li>
                         <li class="lilar">Take the quiz as many times as you like to practice for a certifying exam. The quiz doesn't issue a certificate</li>
                     </ul>
-                    <div class="wrapepr-card-btn">
+                    <a href="/quiz4" class="wrapepr-card-btn">
                         <button class="tugma tug3">Start 15 min test</button>
-                    </div>
+                    </a>
 
                 </div>
             </div>

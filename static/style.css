@@ -373,6 +373,27 @@ button, a{
     cursor: pointer;
 }
 
+.wrapper-links{
+    display: flex;
+    gap: 20px;
+}
+
+.login2{
+    background-color: #45DD97;
+    border-color: transparent;
+    color: #ffffff;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.links:hover{
+    opacity: 70%;
+}
+
+
+
 @media (max-width: 768px){
     #header-right{
         display: none;
@@ -596,7 +617,11 @@ button, a{
 
         
     }
+    
+
+    
 /* 
+
 
     main{
         width: 100%;
@@ -622,4 +647,9 @@ button, a{
     .relative1, .relative2, .relative3{
         display: none;
     }
+
+    #mainnn{
+        height: auto;
+    }
+    
 }

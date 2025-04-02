@@ -9,17 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/style.css">
     <link rel="stylesheet" href="../static/login.css">
+    <link rel="stylesheet" href="../static/a1testpage.css">
+    <link rel="stylesheet" href="../static/a2testpage.css">
 </head>
 <body>
 
-    <header>
+    <header id="hed">
         <div class="wrapper-header container">
             <a href="../templates/index.html" class="header-left">
                 <img src="../static/images/logo_quiz.svg" alt="" class="logos">
             </a>
             <nav id="header-right" class="linklar">
                 <a href="/" class="links">Home</a>
-                <a href="#" class="links">Our tests</a>
+                <a href="/tests" class="links">Our tests</a>
                 <a href="#" class="links">Certifications</a>
                 <a href="#" class="links">About Us</a>
                 {% if user_email %}
@@ -32,7 +34,7 @@
                 {% else %}
 
                 <a href="/login" class="links">Kirish</a>
-                
+               
                 {% endif %}
 
             </nav>
@@ -49,19 +51,16 @@
                 <button id="close">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="##171717"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
                 </button>
-                <div class="wrapper-links">
+
                 <a href="/tests" class="links linkchalar">Our tests</a>
                 <a href="#" class="links linkchalar">Certifications</a>
                 <a href="#" class="links linkchalar">About Us</a>
-                </div>
-
-                
                 {% if user_email %}
                 <a href="../templates/login.html" class="wrapper-btn wrapp-login">
                     <button class="login loginn">{{ user_email }}</button>
                 </a>
                 <a href="/logout" class="wrapper-btn wrap-login">
-                    <button class="login loginn">Log-out</button>
+                    <button class="login loginn login2">Log-out</button>
                 </a>
                 {% else %}
 
@@ -74,34 +73,42 @@
         </div>
     </header>
 
-    <main>
-        <div class="center center2">
-            <form  METHOD ="POST">
-                <div class="sarlavha">
-                    <h2 class="main-sarlavha2">Sign-up</h2>
-                    <p class="matn3">Insert informations about yourself to sign-up</p>
-                </div>
+    <main class="b2">
 
-                <label for="email" class="label">
-                    <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/></svg>
-                    <input type="email" name="email" id="email" autocomplete="off" placeholder="Please enter your email">
-                </label>
-                <label for="password">
-                    <svg class="svg" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm240-120q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></svg>
-                    <input type="password" name="password" id="password" autocomplete="off" placeholder="Please enter your homework">
-                </label>
-                    <label for="submit">
-                        <input type="submit" id="submit" name="submit">
-                    </label>
+    <form method="POST" class="quti">
+        <h2 class="main-sarlavha3 ">{{ question["question"] }}</h2>
+        <input id="answer1" class="input" type="radio" name="answer" value="A"><label for="answer1" class="span kok">{{ question["option_a"] }}</label> <br>
+        <input id="answer2" class="input" type="radio" name="answer" value="B"> <label for="answer2" class="span kok">{{ question["option_b"] }}</label><br>
+        <input id="answer3" class="input" type="radio" name="answer" value="C"><label for="answer3" class="span kok">{{ question["option_c"] }}</label> <br>
+        <input id="answer4" class="input" type="radio" name="answer" value="D"><label for="answer4" class="span kok">{{ question["option_d"] }}</label> <br>
+        
+        <div class="wrapper-tugmalar tuggg">
 
-                    <a href="/login" class="wrapper-signup">Have an account? <span>login</span></a>
-            </form>
+            {% if current > 0 %}
+            <button class="Oldingi" type="submit" name="prev" onclick="prevQuestion()">Oldingi</button>
+        {% endif %}
+        
+        {% if current + 1 == total %}
+            <button type="submit" name="submit" class="Yakunlash">Yakunlash</button>
+        {% else %}
+            <button type="submit" name="next" class="Oldingi Keyingi">Keyingi</button>
+        {% endif %}
+
         </div>
         
-    </main>
+
+        <div class="wrapper-result">
+            <a href="/result4" class="result">Testni Yakunlash</a>
+        </div>
+
+        <h1 id="second">15</h1>
+    </form>
+        
+    </main> 
+    
 
 
-    <script src="../static/main.js"></script>
+    <script src="../static/mainb2.js"></script>
     
 </body>
 </html>

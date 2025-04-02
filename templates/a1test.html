@@ -14,18 +14,20 @@
 
     <header>
         <div class="wrapper-header container">
-            <a href="/home" class="header-left">
+            <a href="/" class="header-left">
                 <img src="../static/images/logo_quiz.svg" alt="" class="logos">
             </a>
             <nav id="header-right" class="linklar">
-                <a href="/home" class="links">Home</a>
+                <a href="/" class="links">Home</a>
                 <a href="/tests" class="links">Our tests</a>
                 <a href="" class="links">Certifications</a>
                 <a href="#" class="links">About Us</a>
                 {% if user_email %}
                 <a href="../templates/login.html" class="wrapper-btn wrapp-login">
                     <button class="login loginn">{{ user_email }}</button>
-                    <a href="/logout" class="links linkchalar">{{ Chiqish }}</a>
+                </a>
+                <a href="/logout" class="wrapper-btn wrap-login">
+                    <button class="login loginn login2">Log-out</button>
                 </a>
                 {% else %}
 
@@ -54,7 +56,9 @@
                 {% if user_email %}
                 <a href="../templates/login.html" class="wrapper-btn wrapp-login">
                     <button class="login loginn">{{ user_email }}</button>
-                    <a href="/logout" class="links linkchalar">{{ Chiqish }}</a>
+                </a>
+                <a href="/logout" class="wrapper-btn wrap-login">
+                    <button class="login loginn login2">Log-out</button>
                 </a>
                 {% else %}
 
