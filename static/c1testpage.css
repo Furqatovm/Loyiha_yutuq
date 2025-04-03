@@ -1,0 +1,15 @@
+
+
+
+.input:checked + .span{
+    background-color: red;
+
+}
+
+.input + .span{
+    background-color: #4169E1;
+}
+
+.h8{
+    color: #4169E1;
+}

@@ -1,0 +1,17 @@
+
+
+
+
+
+.input:checked + .span{
+    background-color: red;
+
+}
+
+.input + .span{
+    background-color: #191970;
+}
+
+.h9{
+    color: #191970;
+}

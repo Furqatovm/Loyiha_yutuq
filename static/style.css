@@ -392,7 +392,18 @@ button:hover{
     opacity: 70%;
 }
 
-
+.footer-div-1{
+    overflow: hidden;
+}
+.wrapper-footer-logo{
+    overflow: hidden;
+}
+@media (max-width: 1200px){
+    .class{
+        width: fit-content;
+        overflow: hidden;
+    }
+}
 
 @media (max-width: 768px){
     #header-right{

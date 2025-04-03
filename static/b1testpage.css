@@ -1,0 +1,19 @@
+
+
+
+.input:checked + .span{
+    background-color: red;
+
+}
+
+.input + .span{
+    background-color: #be3290;
+}
+
+.h7{
+    color: #be3290;
+}
+
+.Keyingi{
+    background-color: #009999;
+}
