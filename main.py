@@ -1,5 +1,5 @@
 from flask import Flask, redirect, url_for, render_template, request, session
-import sqlite3
+import sqlite3, os
 import library
 
 
@@ -514,7 +514,7 @@ def c2():
 
 
 if __name__ =="__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 10000)), debug=True)
 
 
 
