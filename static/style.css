@@ -392,16 +392,19 @@ button:hover{
     opacity: 70%;
 }
 
-.footer-div-1{
+/* .footer-div-1{
     overflow: hidden;
 }
 .wrapper-footer-logo{
     overflow: hidden;
-}
+} */
 @media (max-width: 1200px){
     .class{
         width: fit-content;
         overflow: hidden;
+    }
+    hr{
+        display: none;
     }
 }
 
@@ -602,6 +605,11 @@ button:hover{
         align-items: center;
         justify-content: center;
     }
+
+
+    hr{
+        display: none;
+    }
     
 
 
@@ -663,4 +671,7 @@ button:hover{
         height: auto;
     }
     
+    hr{
+        display: none;
+    }
 }

@@ -349,7 +349,9 @@
         margin-right: auto;
         margin-left: auto;
         padding-top: 40px;
-        height: auto;
+        height: fit-content;
+        padding-top: 50px;
+        margin-top: 50px;
     }
     .wrapper-main{
         max-width: 650px;
