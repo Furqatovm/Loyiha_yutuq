@@ -25,10 +25,11 @@ questions = [
 
 @app.route("/quiz", methods=["GET", "POST"])
 def quiz():
-    user_email =session.get("email")
+    user_email = session.get("email")
     session.setdefault("current_question", 0)
     session.setdefault("score", 0)
     session.setdefault("mistakes", 0)
+    session.setdefault("answers", [])  # Foydalanuvchi javoblarini saqlash uchun
 
     current_question = session["current_question"]
 
@@ -36,17 +37,36 @@ def quiz():
         user_answer = request.form.get("answer")
         correct_answer = questions[current_question]["answer"]
 
+        # Foydalanuvchi javobini tekshirish
         if user_answer:
+            # Javobni saqlash (faqat agar bu javob hali saqlanmagan bo'lsa)
+            if len(session["answers"]) <= current_question:
+                session["answers"].append(user_answer)
+            else:
+                session["answers"][current_question] = user_answer
+
+            # Javobni tekshirish va hisoblash
             if user_answer == correct_answer:
                 session["score"] += 1
             else:
                 session["mistakes"] += 1
 
-        # Keyingi yoki oldingi savolga o‘tish
+        # "next" tugmasi bosilsa
         if "next" in request.form and current_question + 1 < len(questions):
             session["current_question"] += 1
+
+        # "prev" tugmasi bosilsa
         elif "prev" in request.form and current_question > 0:
             session["current_question"] -= 1
+            # Orqaga qaytishda javoblarni qayta hisoblashni to'xtatish (xatoliklarni hisoblamaslik)
+            prev_answer = session["answers"][current_question - 1]  # Oldingi savolning javobini olish
+            prev_correct_answer = questions2[current_question - 1]["answer"]  # Oldingi savolning to'g'ri javobini olish
+
+            if prev_answer == prev_correct_answer:
+                session["score"] -= 1
+            else:
+                session["mistakes"] -= 1
+
         elif "submit" in request.form and current_question + 1 == len(questions):
             return redirect(url_for("result"))
 
@@ -72,10 +92,11 @@ questions2 =[
 
 @app.route("/quiz2", methods=["GET", "POST"])
 def quiz2():
-    user_email =session.get("email")
+    user_email = session.get("email")
     session.setdefault("current_question2", 0)
     session.setdefault("score2", 0)
     session.setdefault("mistakes2", 0)
+    session.setdefault("answers", [])  # Foydalanuvchi javoblarini saqlash uchun
 
     current_question = session["current_question2"]
 
@@ -83,17 +104,36 @@ def quiz2():
         user_answer = request.form.get("answer")
         correct_answer = questions2[current_question]["answer"]
 
+        # Foydalanuvchi javobini tekshirish
         if user_answer:
+            # Javobni saqlash (faqat agar bu javob hali saqlanmagan bo'lsa)
+            if len(session["answers"]) <= current_question:
+                session["answers"].append(user_answer)
+            else:
+                session["answers"][current_question] = user_answer
+
+            # Javobni tekshirish va hisoblash
             if user_answer == correct_answer:
                 session["score2"] += 1
             else:
                 session["mistakes2"] += 1
 
-        # Keyingi yoki oldingi savolga o‘tish
+        # "next" tugmasi bosilsa
         if "next" in request.form and current_question + 1 < len(questions2):
             session["current_question2"] += 1
+
+        # "prev" tugmasi bosilsa
         elif "prev" in request.form and current_question > 0:
             session["current_question2"] -= 1
+            # Orqaga qaytishda javoblarni qayta hisoblashni to'xtatish (xatoliklarni hisoblamaslik)
+            prev_answer = session["answers"][current_question - 1]  # Oldingi savolning javobini olish
+            prev_correct_answer = questions2[current_question - 1]["answer"]  # Oldingi savolning to'g'ri javobini olish
+
+            if prev_answer == prev_correct_answer:
+                session["score2"] -= 1
+            else:
+                session["mistakes2"] -= 1
+
         elif "submit" in request.form and current_question + 1 == len(questions2):
             return redirect(url_for("resulta2"))
 
@@ -101,7 +141,8 @@ def quiz2():
 
         return redirect(url_for("quiz2"))  # F5 bosganda savol takrorlanmasligi uchun
 
-    return render_template("a2testpage.html", question=questions2[current_question], current=current_question, total=len(questions2), user_email =user_email)
+    return render_template("a2testpage.html", question=questions2[current_question], current=current_question, total=len(questions2), user_email=user_email)
+
 
 
 
@@ -121,10 +162,11 @@ questions3 =[
 
 @app.route("/quiz3", methods=["GET", "POST"])
 def quiz3():
-    user_email =session.get("email")
+    user_email = session.get("email")
     session.setdefault("current_question3", 0)
     session.setdefault("score3", 0)
     session.setdefault("mistakes3", 0)
+    session.setdefault("answers", [])  # Foydalanuvchi javoblarini saqlash uchun
 
     current_question = session["current_question3"]
 
@@ -132,17 +174,36 @@ def quiz3():
         user_answer = request.form.get("answer")
         correct_answer = questions3[current_question]["answer"]
 
+        # Foydalanuvchi javobini tekshirish
         if user_answer:
+            # Javobni saqlash (faqat agar bu javob hali saqlanmagan bo'lsa)
+            if len(session["answers"]) <= current_question:
+                session["answers"].append(user_answer)
+            else:
+                session["answers"][current_question] = user_answer
+
+            # Javobni tekshirish va hisoblash
             if user_answer == correct_answer:
                 session["score3"] += 1
             else:
                 session["mistakes3"] += 1
 
-        # Keyingi yoki oldingi savolga o‘tish
+        # "next" tugmasi bosilsa
         if "next" in request.form and current_question + 1 < len(questions3):
             session["current_question3"] += 1
+
+        # "prev" tugmasi bosilsa
         elif "prev" in request.form and current_question > 0:
             session["current_question3"] -= 1
+            # Orqaga qaytishda javoblarni qayta hisoblashni to'xtatish (xatoliklarni hisoblamaslik)
+            prev_answer = session["answers"][current_question - 1]  # Oldingi savolning javobini olish
+            prev_correct_answer = questions3[current_question - 1]["answer"]  # Oldingi savolning to'g'ri javobini olish
+
+            if prev_answer == prev_correct_answer:
+                session["score3"] -= 1
+            else:
+                session["mistakes3"] -= 1
+
         elif "submit" in request.form and current_question + 1 == len(questions3):
             return redirect(url_for("resulta3"))
 
@@ -150,8 +211,7 @@ def quiz3():
 
         return redirect(url_for("quiz3"))  # F5 bosganda savol takrorlanmasligi uchun
 
-    return render_template("b1testpage.html", question=questions3[current_question], current=current_question, total=len(questions3), user_email =user_email)
-
+    return render_template("b1testpage.html", question=questions3[current_question], current=current_question, total=len(questions3), user_email=user_email)
 
 
 
@@ -187,10 +247,11 @@ questions4 = [
 
 @app.route("/quiz4", methods=["GET", "POST"])
 def quiz4():
-    user_email =session.get("email")
+    user_email = session.get("email")
     session.setdefault("current_question4", 0)
     session.setdefault("score4", 0)
     session.setdefault("mistakes4", 0)
+    session.setdefault("answers", [])  # Foydalanuvchi javoblarini saqlash uchun
 
     current_question = session["current_question4"]
 
@@ -198,17 +259,36 @@ def quiz4():
         user_answer = request.form.get("answer")
         correct_answer = questions4[current_question]["answer"]
 
+        # Foydalanuvchi javobini tekshirish
         if user_answer:
+            # Javobni saqlash (faqat agar bu javob hali saqlanmagan bo'lsa)
+            if len(session["answers"]) <= current_question:
+                session["answers"].append(user_answer)
+            else:
+                session["answers"][current_question] = user_answer
+
+            # Javobni tekshirish va hisoblash
             if user_answer == correct_answer:
                 session["score4"] += 1
             else:
                 session["mistakes4"] += 1
 
-        # Keyingi yoki oldingi savolga o‘tish
+        # "next" tugmasi bosilsa
         if "next" in request.form and current_question + 1 < len(questions4):
             session["current_question4"] += 1
+
+        # "prev" tugmasi bosilsa
         elif "prev" in request.form and current_question > 0:
             session["current_question4"] -= 1
+            # Orqaga qaytishda javoblarni qayta hisoblashni to'xtatish (xatoliklarni hisoblamaslik)
+            prev_answer = session["answers"][current_question - 1]  # Oldingi savolning javobini olish
+            prev_correct_answer = questions4[current_question - 1]["answer"]  # Oldingi savolning to'g'ri javobini olish
+
+            if prev_answer == prev_correct_answer:
+                session["score4"] -= 1
+            else:
+                session["mistakes4"] -= 1
+
         elif "submit" in request.form and current_question + 1 == len(questions4):
             return redirect(url_for("resulta4"))
 
@@ -216,7 +296,7 @@ def quiz4():
 
         return redirect(url_for("quiz4"))  # F5 bosganda savol takrorlanmasligi uchun
 
-    return render_template("b2testpage.html", question=questions4[current_question], current=current_question, total=len(questions4), user_email =user_email)
+    return render_template("b2testpage.html", question=questions4[current_question], current=current_question, total=len(questions4), user_email=user_email)
 
 
 
@@ -246,13 +326,13 @@ questions5 = [
 ]
 
 
-
 @app.route("/quiz5", methods=["GET", "POST"])
 def quiz5():
-    user_email =session.get("email")
+    user_email = session.get("email")
     session.setdefault("current_question5", 0)
     session.setdefault("score5", 0)
     session.setdefault("mistakes5", 0)
+    session.setdefault("answers", [])  # Foydalanuvchi javoblarini saqlash uchun
 
     current_question = session["current_question5"]
 
@@ -260,17 +340,36 @@ def quiz5():
         user_answer = request.form.get("answer")
         correct_answer = questions5[current_question]["answer"]
 
+        # Foydalanuvchi javobini tekshirish
         if user_answer:
+            # Javobni saqlash (faqat agar bu javob hali saqlanmagan bo'lsa)
+            if len(session["answers"]) <= current_question:
+                session["answers"].append(user_answer)
+            else:
+                session["answers"][current_question] = user_answer
+
+            # Javobni tekshirish va hisoblash
             if user_answer == correct_answer:
                 session["score5"] += 1
             else:
                 session["mistakes5"] += 1
 
-        # Keyingi yoki oldingi savolga o‘tish
+        # "next" tugmasi bosilsa
         if "next" in request.form and current_question + 1 < len(questions5):
             session["current_question5"] += 1
+
+        # "prev" tugmasi bosilsa
         elif "prev" in request.form and current_question > 0:
             session["current_question5"] -= 1
+            # Orqaga qaytishda javoblarni qayta hisoblashni to'xtatish (xatoliklarni hisoblamaslik)
+            prev_answer = session["answers"][current_question - 1]  # Oldingi savolning javobini olish
+            prev_correct_answer = questions5[current_question - 1]["answer"]  # Oldingi savolning to'g'ri javobini olish
+
+            if prev_answer == prev_correct_answer:
+                session["score5"] -= 1
+            else:
+                session["mistakes5"] -= 1
+
         elif "submit" in request.form and current_question + 1 == len(questions5):
             return redirect(url_for("resulta5"))
 
@@ -278,8 +377,7 @@ def quiz5():
 
         return redirect(url_for("quiz5"))  # F5 bosganda savol takrorlanmasligi uchun
 
-    return render_template("c1testpage.html", question=questions5[current_question], current=current_question, total=len(questions5), user_email =user_email)
-
+    return render_template("c1testpage.html", question=questions5[current_question], current=current_question, total=len(questions5), user_email=user_email)
 
 
 
@@ -312,10 +410,11 @@ questions6 = [
 
 @app.route("/quiz6", methods=["GET", "POST"])
 def quiz6():
-    user_email =session.get("email")
+    user_email = session.get("email")
     session.setdefault("current_question6", 0)
     session.setdefault("score6", 0)
     session.setdefault("mistakes6", 0)
+    session.setdefault("answers", [])  # Foydalanuvchi javoblarini saqlash uchun
 
     current_question = session["current_question6"]
 
@@ -323,17 +422,36 @@ def quiz6():
         user_answer = request.form.get("answer")
         correct_answer = questions6[current_question]["answer"]
 
+        # Foydalanuvchi javobini tekshirish
         if user_answer:
+            # Javobni saqlash (faqat agar bu javob hali saqlanmagan bo'lsa)
+            if len(session["answers"]) <= current_question:
+                session["answers"].append(user_answer)
+            else:
+                session["answers"][current_question] = user_answer
+
+            # Javobni tekshirish va hisoblash
             if user_answer == correct_answer:
                 session["score6"] += 1
             else:
                 session["mistakes6"] += 1
 
-        # Keyingi yoki oldingi savolga o‘tish
+        # "next" tugmasi bosilsa
         if "next" in request.form and current_question + 1 < len(questions6):
             session["current_question6"] += 1
+
+        # "prev" tugmasi bosilsa
         elif "prev" in request.form and current_question > 0:
             session["current_question6"] -= 1
+            # Orqaga qaytishda javoblarni qayta hisoblashni to'xtatish (xatoliklarni hisoblamaslik)
+            prev_answer = session["answers"][current_question - 1]  # Oldingi savolning javobini olish
+            prev_correct_answer = questions6[current_question - 1]["answer"]  # Oldingi savolning to'g'ri javobini olish
+
+            if prev_answer == prev_correct_answer:
+                session["score6"] -= 1
+            else:
+                session["mistakes6"] -= 1
+
         elif "submit" in request.form and current_question + 1 == len(questions6):
             return redirect(url_for("resulta6"))
 
@@ -341,7 +459,7 @@ def quiz6():
 
         return redirect(url_for("quiz6"))  # F5 bosganda savol takrorlanmasligi uchun
 
-    return render_template("c2testpage.html", question=questions6[current_question], current=current_question, total=len(questions6), user_email =user_email)
+    return render_template("c2testpage.html", question=questions6[current_question], current=current_question, total=len(questions6), user_email=user_email)
 
 
 
@@ -378,7 +496,7 @@ def resulta2():
     session.pop("current_question2", None)
     session.pop("score2", None)
     session.pop("mistakes2", None)
-    return render_template("result2.html", score2=score, mistakes2=mistakes, total=len(questions))
+    return render_template("result2.html", score2=score, mistakes2=mistakes, total=len(questions2))
 
 
 
